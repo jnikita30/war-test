@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Message For Aman ❤️</title>
+<title>For Aman ❤️</title>
 
 <style>
 *{
@@ -17,7 +17,7 @@ body{
     font-family:'Segoe UI',sans-serif;
     overflow:hidden;
     height:100vh;
-    background:linear-gradient(135deg,#ffd1dc,#ff9a9e,#fad0c4);
+    background:linear-gradient(135deg,#FFD1DC,#FAD0C4,#FFE5EC);
 }
 
 #hearts{
@@ -28,13 +28,13 @@ body{
 
 .heart{
     position:absolute;
-    color:rgba(255,255,255,0.85);
+    color:rgba(255,255,255,0.9);
     animation:floatUp linear forwards;
 }
 
 @keyframes floatUp{
     from{
-        transform:translateY(100vh) scale(0.5);
+        transform:translateY(100vh) scale(.5);
         opacity:0;
     }
     20%{
@@ -58,8 +58,8 @@ body{
 }
 
 .card{
-    background:rgba(255,255,255,0.92);
-    color:#2d1f1f;
+    background:rgba(255,255,255,0.93);
+    color:#5C0011; /* Dark Maroon */
     backdrop-filter:blur(12px);
     border-radius:25px;
     padding:40px;
@@ -70,11 +70,12 @@ body{
 
 h1{
     margin-bottom:15px;
-    color:#d6336c;
+    color:#800020; /* Burgundy */
+    font-size:2rem;
 }
 
 p{
-    line-height:1.7;
+    line-height:1.8;
 }
 
 button{
@@ -85,13 +86,14 @@ button{
     cursor:pointer;
     font-size:16px;
     font-weight:600;
-    background:#d6336c;
+    background:#800020;
     color:white;
     transition:.3s;
 }
 
 button:hover{
     transform:scale(1.05);
+    background:#5C0011;
 }
 
 #messageScreen{
@@ -101,9 +103,10 @@ button:hover{
 #typedText{
     font-size:1.15rem;
     line-height:2;
-    min-height:420px;
+    min-height:450px;
     text-align:left;
     white-space:pre-line;
+    color:#5C0011;
 }
 
 .cursor{
@@ -124,7 +127,7 @@ button:hover{
     align-items:center;
     flex-direction:column;
     text-align:center;
-    background:rgba(0,0,0,.25);
+    background:rgba(92,0,17,0.15);
     color:white;
     animation:fadeIn 2s ease;
 }
@@ -141,7 +144,10 @@ button:hover{
 .finalText{
     font-size:4rem;
     font-weight:700;
-    text-shadow:0 0 20px rgba(255,255,255,.8);
+    color:#FFD7E0;
+    text-shadow:
+        0 0 15px rgba(255,215,224,.9),
+        0 0 30px rgba(255,215,224,.7);
     animation:pulse 2s infinite;
 }
 
@@ -159,11 +165,13 @@ button:hover{
     font-size:1.3rem;
     max-width:700px;
     line-height:1.8;
+    color:white;
 }
 
 .signature{
     margin-top:35px;
     font-size:1rem;
+    color:white;
     opacity:.95;
 }
 
@@ -174,17 +182,18 @@ button:hover{
     }
 
     .finalText{
-        font-size:2.4rem;
+        font-size:2.3rem;
+        padding:0 15px;
     }
 
     .sub{
         font-size:1rem;
-        padding:0 20px;
+        padding:0 25px;
     }
 
     #typedText{
         font-size:1rem;
-        min-height:500px;
+        min-height:520px;
     }
 }
 </style>
@@ -200,7 +209,7 @@ button:hover{
 
         <p>
             Someone has been carrying these words in their heart
-            for a while...
+            for quite some time...
         </p>
 
         <button onclick="startSurprise()">
@@ -222,7 +231,7 @@ button:hover{
     </div>
 
     <div class="sub">
-        Of all the people in the world,
+        Of all the people in the world,<br>
         I'm grateful my heart found you.
     </div>
 
@@ -264,7 +273,6 @@ function startSurprise(){
     document.getElementById("messageScreen").style.display = "flex";
 
     const target = document.getElementById("typedText");
-
     let i = 0;
 
     const typing = setInterval(() => {
@@ -295,22 +303,16 @@ function createHeart(){
     const heart = document.createElement("div");
 
     heart.classList.add("heart");
-
     heart.innerHTML = "❤️";
 
     heart.style.left = Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
 
     const duration = 4 + Math.random() * 5;
 
-    heart.style.animationDuration =
-        duration + "s";
+    heart.style.animationDuration = duration + "s";
 
-    document
-        .getElementById("hearts")
-        .appendChild(heart);
+    document.getElementById("hearts").appendChild(heart);
 
     setTimeout(() => {
         heart.remove();
